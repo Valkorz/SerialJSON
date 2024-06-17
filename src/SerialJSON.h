@@ -122,7 +122,7 @@ class SerialJSON
             //TODO
         }
 
-        static void parse(KeyValuePair<KeyType, ValueType>* target){
+        void parse(KeyValuePair<KeyType, ValueType>* target){
             /*
             int i = 1, j = 0, e = 0;
             KeyType keys[len][BUFFER_SIZE];
@@ -143,7 +143,6 @@ class SerialJSON
                 lastIndex += e;
             } */
         }
-
 
 };
 
