@@ -37,8 +37,8 @@ int main(){
     //str2 = strstrrev((char*)str1, (char*)comma);
     //std::cout << "result: " << str2 << std::endl;
 
-    //int bananas = quickParse<int>(str1, "bananas");
-    //std::cout << "number of bananas: " << bananas << std::endl;
+    int bananas = quickParse<int>(str1, "bananas");
+    std::cout << "number of bananas: " << bananas << std::endl;
 
     /*
     while(str1[i] != '\0'){

@@ -28,7 +28,7 @@
 #endif
 
 #include <string.h>
-#include <sstream>
+#include <cstdlib>
 
 //Like strstr() but reads from right to left.
 //Remember to delete allocated memory after the function has been used.
@@ -48,6 +48,20 @@ char* strstrrev(const char* str1, const char* str2){
     }
 }
 
+//type conversion
+template<typename T>
+T convertString(const char* s);
+
+template<>
+int convertString<int>(const char* s) {
+    return atoi(s);
+}
+
+template<>
+char* convertString<char*>(const char* s) {
+    return (char*)s;
+}
+
 //return value from known key on a JSON-formatted string
 template<typename T>
 T quickParse(const char* str, const char* key){
@@ -59,9 +73,7 @@ T quickParse(const char* str, const char* key){
     cutStr = strstr(revStr, ":");
     if(cutStr != NULL){
         cutStr++;
-        std::istringstream iss(cutStr);
-        T value;
-        iss >> value;
+        T value = convertString<T>(cutStr);
         delete[] revStr; //delete idiot to prevent memory leak haha
         return value;
     } else {
