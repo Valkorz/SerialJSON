@@ -51,15 +51,11 @@ char* strstrrev(const char* str1, const char* str2){
 void quickParse(const char* str, const char* key, char* target){
     char* cutStr = (char*)strstr(str, key);
     if(cutStr != NULL){
-        std::cout << cutStr << std::endl;
         char* revStr = strstrrev(cutStr, ",");
-        std::cout << revStr << std::endl;
         cutStr = strstr(revStr, ":");
-        std::cout << cutStr << std::endl;
         if(cutStr != NULL){
             cutStr++;
             cutStr[strlen(cutStr) - 1] = '\0';
-            std::cout << cutStr << std::endl;
             strcpy(target, cutStr);
             delete[] revStr;
         } else {

@@ -19,9 +19,9 @@
     },
     "examples": [
         {
-            "name": "Test",
-            "base": "src/main.cpp",
-            "files": ["main.cpp"]
+            "name": "parseTest",
+            "base": "examples/parseTest.cpp",
+            "files": ["parseTest.cpp"]
         }
     ],
     "frameworks": "arduino",

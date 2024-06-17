@@ -21,7 +21,7 @@
 
 #include <iostream>
 #include <string.h>
-#include "SerialJSON.h"
+#include "../src/SerialJSON.h"
 #define BUFFER_SIZE 256
 
 const char* comma = ",";
