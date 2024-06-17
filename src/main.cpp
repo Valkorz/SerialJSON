@@ -32,37 +32,12 @@ const char* str1 = "{apples:5,bananas:12}";
 int main(){
 
     std::cout << "initializing program..." << std::endl;
-    char* str2 = new char[BUFFER_SIZE];
+    char str2[BUFFER_SIZE];
     int i = 0;
-    //str2 = strstrrev((char*)str1, (char*)comma);
-    //std::cout << "result: " << str2 << std::endl;
+    
+    quickParse(str1, "bananas", str2);
+    std::cout << "number of bananas: " << str2 << std::endl;
 
-    int bananas = quickParse<int>(str1, "bananas");
-    std::cout << "number of bananas: " << bananas << std::endl;
-
-    /*
-    while(str1[i] != '\0'){
-        std::cout << "current char: " << str1[i] << std::endl;
-        if(str1[i] == ':'){
-            str1 = strstr(str1, colon);
-            i = 0;
-            delete[] str2;
-            str2 = new char[BUFFER_SIZE];
-        }
-        else if(str1[i] == ','){
-            str1 = strstr(str1, comma);
-            i = 0;
-            delete[] str2;
-            str2 = new char[BUFFER_SIZE];
-        }
-        else{
-            str2[i] = str1[i];
-            str2[i + 1] = '\0';
-            std::cout << "string: " << str2 << std::endl;
-        }
-        i++;
-    } */
-    delete str2;
     int t;
     std::cin >> t;
     return 0;

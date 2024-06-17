@@ -28,7 +28,6 @@
 #endif
 
 #include <string.h>
-#include <cstdlib>
 
 //Like strstr() but reads from right to left.
 //Remember to delete allocated memory after the function has been used.
@@ -48,38 +47,25 @@ char* strstrrev(const char* str1, const char* str2){
     }
 }
 
-//type conversion
-template<typename T>
-T convertString(const char* s);
-
-template<>
-int convertString<int>(const char* s) {
-    return atoi(s);
-}
-
-template<>
-char* convertString<char*>(const char* s) {
-    return (char*)s;
-}
-
 //return value from known key on a JSON-formatted string
-template<typename T>
-T quickParse(const char* str, const char* key){
-    char* cutStr = strstr(str, key);
-    if(cutStr == NULL){
-        return T();
-    }
-    char* revStr = strstrrev(cutStr, ",");
-    cutStr = strstr(revStr, ":");
+void quickParse(const char* str, const char* key, char* target){
+    char* cutStr = (char*)strstr(str, key);
     if(cutStr != NULL){
-        cutStr++;
-        T value = convertString<T>(cutStr);
-        delete[] revStr; //delete idiot to prevent memory leak haha
-        return value;
-    } else {
-        delete[] revStr;
-        return T();
-    }
+        std::cout << cutStr << std::endl;
+        char* revStr = strstrrev(cutStr, ",");
+        std::cout << revStr << std::endl;
+        cutStr = strstr(revStr, ":");
+        std::cout << cutStr << std::endl;
+        if(cutStr != NULL){
+            cutStr++;
+            cutStr[strlen(cutStr) - 1] = '\0';
+            std::cout << cutStr << std::endl;
+            strcpy(target, cutStr);
+            delete[] revStr;
+        } else {
+            delete[] revStr;
+        }
+    } 
 }
 
 template<typename KeyType, typename ValueType>
