@@ -1,0 +1,29 @@
+{
+    "name": "SERIALJSON",
+    "version": "1.0.0",
+    "keywords": "json, serial, parsing, helper",
+    "description": "Library to format JSON-like data for serial communication",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Valkorz",
+            "email": "pivarcivittorio@gmail.com",
+            "url": "https://github.com/Valkorz",
+            "maintainer": true
+        }
+    ],
+    "homepage": "https://github.com/Valkorz/SerialJSON",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Valkorz/SerialJSON.git"
+    },
+    "examples": [
+        {
+            "name": "Test",
+            "base": "src/main.cpp",
+            "files": ["main.cpp"]
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "*"
+}
