@@ -52,6 +52,9 @@ char* strstrrev(const char* str1, const char* str2){
 template<typename T>
 T quickParse(const char* str, const char* key){
     char* cutStr = strstr(str, key);
+    if(cutStr == NULL){
+        return T();
+    }
     char* revStr = strstrrev(cutStr, ",");
     cutStr = strstr(revStr, ":");
     if(cutStr != NULL){
